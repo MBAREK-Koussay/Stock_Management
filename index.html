@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Système de Suivi des Stocks</title>
+
+    <!-- Importation de Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Importation des modules -->
+    <script type="module" src="./StockTracker.js"></script>
+    <script type="module" src="./StockChart.js"></script>
+    <script type="module" src="./componenet1.js"></script>
+
+
+    <style>
+        :root {
+            --primary-color: #3B82F6;
+            --secondary-color: #1d3197;
+            --background-color: #F3F4F6;
+            --text-color: #1F2937;
+            --card-background: #FFFFFF;
+            --hover-color: #5ebe2b;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <stock-tracker></stock-tracker>
+        <compo-1></compo-1>
+    </div>
+
+
+</body>
+</html>
