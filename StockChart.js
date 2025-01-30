@@ -1,31 +1,36 @@
-export function renderStockChart(container) {
-    if (!container) return;
-
-    // Insérer une balise canvas dans le conteneur
+export async function renderStockChart(container) {
     container.innerHTML = '<canvas id="stock-chart"></canvas>';
-    
-    // Récupérer le canvas
     const ctx = container.querySelector("#stock-chart");
 
-    // Données du graphique
-    const data = {
-        labels: ["Jan", "Fév", "Mar", "Avr", "Mai", "Juin"],
-        datasets: [{
-            label: "Stock Niveau",
-            data: [100, 150, 120, 170, 140, 180], 
-            backgroundColor: "rgba(41, 14, 97, 0.2)",
-            borderColor: "rgb(64, 20, 161)",
-            borderWidth: 2
-        }]
-    };
+    try {
+        // Charger les données depuis le fichier JSON
+        const response = await fetch("./data.json");
+        const stockData = await response.json();
 
-    // Configuration du graphique
-    new Chart(ctx, {
-        type: "line",
-        data: data,
-        options: {
-            responsive: true,
-            maintainAspectRatio: false
-        }
-    });
+        // Extraire les labels et les valeurs
+        const labels = stockData.map(item => item.produit);
+        const dataValues = stockData.map(item => item.quantite);
+
+        // Création du graphique
+        new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: "Stock Niveau",
+                    data: dataValues,
+                    backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)", "rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)"],
+                    borderColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)", "rgb(255, 206, 86)", "rgb(75, 192, 192)"],
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+        
+    } catch (error) {
+        console.error("Erreur lors de la récupération des données :", error);
+    }
 }

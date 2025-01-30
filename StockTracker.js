@@ -171,7 +171,8 @@ class StockTracker extends HTMLElement {
                 category: 'Électronique', 
                 products: [
                     { name: 'Smartphone', quantity: 50, location: 'B2-01', },
-                    { name: 'Écouteurs', quantity: 150, location: 'B2-02'}
+                    { name: 'Écouteurs', quantity: 150, location: 'B2-02'},
+                    { name: "Airpods", quantity: 100 , location: 'B2-03'}
                 ]
             }
         ];
