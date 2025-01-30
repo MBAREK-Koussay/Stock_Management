@@ -1,0 +1,7 @@
+[
+    { "produit": "Lait", "quantite": 100 },
+    { "produit": "Yaourt", "quantite": 250 },
+    { "produit": "Smartphone", "quantite": 50 },
+    { "produit": "Écouteurs", "quantite": 150 },
+    { "produit": "Airpods", "quantite": 100 }
+]
