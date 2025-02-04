@@ -3,7 +3,7 @@ export async function renderStockChart(container) {
     const ctx = container.querySelector("#stock-chart");
 
     try {
-        // Charger les données depuis le fichier JSON
+       
         const response = await fetch("./data.json");
         const stockData = await response.json();
 
@@ -11,7 +11,7 @@ export async function renderStockChart(container) {
         const labels = stockData.map(item => item.produit);
         const dataValues = stockData.map(item => item.quantite);
 
-        // Création du graphique
+        
         new Chart(ctx, {
             type: "pie",
             data: {
@@ -26,7 +26,7 @@ export async function renderStockChart(container) {
             },
             options: {
                 responsive: true,
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
             }
         });
         
