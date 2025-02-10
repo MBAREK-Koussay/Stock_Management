@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Warehouse Layout</title>
+  <style>
+    body { text-align: center; background: #f4f4f4; }
+    canvas { background: white; border: 2px solid black; }
+  </style>
+</head>
+<body>
+
+  <h2>Warehouse Layout</h2>
+  <canvas id="warehouseCanvas" width="500" height="400"></canvas>
+
+  <script>
+    const canvas = document.getElementById('warehouseCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Function to draw the warehouse layout
+    function drawWarehouse() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw warehouse walls
+      ctx.fillStyle = "#999";
+      ctx.fillRect(10, 10, 480, 380); // Outer walls
+
+      // Draw shelves
+      ctx.fillStyle = "#8B4513";
+      ctx.fillRect(10, 50, 300, 20); // Shelf 1
+      ctx.fillRect(100, 150, 300, 20); // Shelf 2
+      ctx.fillRect(100, 250, 300, 20); // Shelf 3
+
+      // Draw products as small boxes
+      ctx.fillStyle = "red";
+      ctx.fillRect(120, 55, 20, 15); // Product 1
+      ctx.fillRect(200, 55, 20, 15); // Product 2
+      ctx.fillRect(280, 55, 20, 15); // Product 3
+
+      ctx.fillRect(140, 155, 20, 15); // Product 4
+      ctx.fillRect(220, 155, 20, 15); // Product 5
+      ctx.fillRect(300, 155, 20, 15); // Product 6
+
+      ctx.fillRect(160, 255, 20, 15); // Product 7
+      ctx.fillRect(240, 255, 20, 15); // Product 8
+      ctx.fillRect(320, 255, 20, 15); // Product 9
+
+      // Draw entry door
+      ctx.fillStyle = "blue";
+      ctx.fillRect(230, 370, 40, 20);
+    }
+
+    drawWarehouse();
+  </script>
+
+</body>
+</html>
